@@ -12,7 +12,7 @@ image_types = (".png", ".jpg", ".jpeg", ".gif")
 embeddings_cache = "dogs_embeddings.pkl"
 
 
-def get_embeddings(image_path):
+def get_embedding(image_path):
     try:
         image = Image.open(image_path).convert("RGB")
         inputs = processor(images=image, return_tensors="pt", padding=True)
@@ -33,7 +33,7 @@ def calculate_dog_embeddings(folder_path):
 
     for image_file in tqdm(image_files, desc="Calculating dog embeddings"):
         image_path = os.path.join(folder_path, image_file)
-        embedding = get_embeddings(image_path)
+        embedding = get_embedding(image_path)
         embeddings[image_file] = embedding
 
     return embeddings
