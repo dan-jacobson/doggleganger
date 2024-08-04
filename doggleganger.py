@@ -1,5 +1,7 @@
+import pickle
 from scipy.spatial.distance import cosine
 
+from embeddings import get_embedding
 
 cache_path = "example_dog_images/dog_embeddings.pkl"
 
